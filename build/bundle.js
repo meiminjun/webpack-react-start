@@ -55,34 +55,38 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var React = __webpack_require__(1),
-	    ListItemComponent = __webpack_require__(158),
+	    Demo2 = __webpack_require__(158),
 	    ReactDom = __webpack_require__(159);
 	
-	var NameManager = (function (_React$Component) {
-		_inherits(NameManager, _React$Component);
+	var AppManager = (function (_React$Component) {
+		_inherits(AppManager, _React$Component);
 	
-		function NameManager() {
-			_classCallCheck(this, NameManager);
+		function AppManager() {
+			_classCallCheck(this, AppManager);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NameManager).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(AppManager).apply(this, arguments));
 		}
 	
-		_createClass(NameManager, [{
+		_createClass(AppManager, [{
 			key: 'render',
 			value: function render() {
+				var messageArr = [];
+				for (var ii = 0; ii < 10; ii++) {
+					messageArr.push(React.createElement(Demo2, null));
+				}
 				return React.createElement(
 					'div',
 					null,
-					'测试一个东西机型',
-					React.createElement(ListItemComponent, { ref: 'namesList' })
+					'测试一个东西机型222',
+					messageArr
 				);
 			}
 		}]);
 	
-		return NameManager;
+		return AppManager;
 	})(React.Component);
 	
-	ReactDom.render(React.createElement(NameManager, null), document.querySelector('body'));
+	ReactDom.render(React.createElement(AppManager, null), document.querySelector('body'));
 
 /***/ },
 /* 1 */
@@ -19679,53 +19683,48 @@
 	var React = __webpack_require__(1),
 	    ReactDom = __webpack_require__(159);
 	
-	var NameManager = (function (_React$Component) {
-		_inherits(NameManager, _React$Component);
+	var names = ["Alice", "Email", "meiminjun", "liya"];
 	
-		function NameManager() {
-			_classCallCheck(this, NameManager);
+	var Demo2 = (function (_React$Component) {
+		_inherits(Demo2, _React$Component);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NameManager).apply(this, arguments));
+		function Demo2() {
+			_classCallCheck(this, Demo2);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Demo2).apply(this, arguments));
 		}
 	
-		_createClass(NameManager, [{
+		_createClass(Demo2, [{
 			key: 'render',
 			value: function render() {
 				return React.createElement(
 					'div',
 					null,
 					React.createElement(
-						'ul',
+						'h2',
 						null,
-						React.createElement(
+						'-------数组测试(demo2)-------'
+					),
+					names.map(function (name) {
+						return React.createElement(
 							'li',
 							null,
-							'1111'
-						),
-						React.createElement(
-							'li',
-							null,
-							'1111'
-						),
-						React.createElement(
-							'li',
-							null,
-							'1111'
-						),
-						React.createElement(
-							'li',
-							null,
-							'1111'
-						)
+							name
+						);
+					}),
+					React.createElement(
+						'div',
+						null,
+						'-------------------------------'
 					)
 				);
 			}
 		}]);
 	
-		return NameManager;
+		return Demo2;
 	})(React.Component);
 	
-	module.exports = NameManager;
+	module.exports = Demo2;
 
 /***/ },
 /* 159 */
