@@ -2,7 +2,7 @@
  * @Author: EX-MEIMINJUN001
  * @Date:   2015-12-07 11:16:42
  * @Last Modified by:   EX-MEIMINJUN001
- * @Last Modified time: 2015-12-17 14:58:09
+ * @Last Modified time: 2015-12-25 15:11:09
  */
 var webpack = require('webpack');
 var path = require('path');
@@ -11,7 +11,7 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
-var entryFile = APP_PATH+"/indexTest.jsx";
+var entryFile = APP_PATH+'/indexTest.jsx';
 
 module.exports = {
 	//项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
@@ -48,7 +48,7 @@ module.exports = {
 		inline: true,
 		progress: true,
 		// host:'10.6.160.183',
-		// port:4000
+		port:4000
 	},
 	plugins: [
 		new HtmlwebpackPlugin({
