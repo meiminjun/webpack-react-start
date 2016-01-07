@@ -3,9 +3,11 @@ Demo2 = require('./Demo2.jsx'),
 $ = require('jquery'),
 ReactDom = require('react-dom');
 
+
+
+
 class CommonList extends React.Component {
 	render() {
-		console.log("---打印CommonList----")
 		console.log(this.props.comments);
 		var commentsNode = this.props.comments.map(function(comment,index) {
 			return (
@@ -38,37 +40,10 @@ class Common extends React.Component {
 }
 
 class CommonForm extends React.Component {
-	// 提交表单事件
-	handleClick(e) {
-		e.preventDefault();
-		console.log(e);
-		console.log(this.refs.author.value);
-		const author = this.refs.author.value;
-		const body = this.refs.body.value;
-		const form = this.refs.form;
-		
-		console.log(author,body);
-		
-		// 给他的调用者
-		this.props.onSubmit({
-			author:author,
-			body:body
-		});
-
-		form.reset();
-
-	}
-
 	render() {
 		return (
 			<div>
-			<form ref ="form" onSubmit={(e) => {
-				this.handleClick(e)
-			}}>
-				<input type="text" placeholder="Your name" ref ="author"/>
-				<input type="text" placeholder="Your body" ref ="body"/>
-				<input type="submit" ref="sub" value="提交" />
-			</form>
+			<h2> CommonForm</h2>
 			</div>
 			)
 	}
@@ -102,8 +77,6 @@ class CommonBox extends React.Component {
 			// 用箭头函数的话，默认绑定到this
 			success:res => {
 				var commonets = res.response;
-				console.log("----打印默认loadData----")
-				console.log(commonets);
 				this.setState({
 					comment:commonets
 				})
@@ -125,38 +98,6 @@ class CommonBox extends React.Component {
 	componentDidMount() {
 		this.loadData();
 	}
-	
-	handleNewComment(coments) {
-		console.log("---------");
-		console.log(coments);
-		
-		const comments = this.state.comment;
-		const newComment = comments.concat([coments]);
-		console.log("------打印newComment-----");
-		console.log(newComment);
-		this.setState({comment:newComment});
-		
-		setTimeout(()=> {
-			$.ajax({
-				url:this.props.url,
-				datatype:'json',
-				type:"POST",
-				success:res => {
-					this.setState({
-						comment:[coments]
-					})
-				},
-				error:(xhr,state,err) => {
-					console.log("--失败以后回滚到原来状态---")
-					this.setState({
-						comment:comments
-					})
-				}
-			});
-		},2000);
-		
-
-	}
 
 	// TODO: 为什么setState失效，并解决
 	// handleClick(event) {
@@ -169,10 +110,7 @@ class CommonBox extends React.Component {
 			<div>
 			<h1>我是一个评论框</h1>
 			<CommonList comments= {this.state.comment} />
-			<CommonForm onSubmit={comment => {
-
-				this.handleNewComment(comment)
-			}} />
+			<CommonForm />
 			</div>
 			)
 	}
