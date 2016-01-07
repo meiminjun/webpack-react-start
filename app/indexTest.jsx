@@ -16,11 +16,11 @@ class Message extends React.Component {
 	//     }
 
 	constructor(props) {
-	        super(props);
-	        this.state = {
-			isVisiable:false,
-			titleMessage:"你好世界",
-			clickCount:0
+		super(props);
+		this.state = {
+			isVisiable: false,
+			titleMessage: "你好世界",
+			clickCount: 0
 		}
 	}
 
@@ -50,6 +50,9 @@ class Message extends React.Component {
 
 
 class AppManager extends React.Component {
+	componentWillMount() {
+		alert(11111);
+	}
 	render() {
 		return ( 
 			<div id="testId">
