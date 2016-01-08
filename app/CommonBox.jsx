@@ -37,6 +37,7 @@ class Common extends React.Component {
 	}
 }
 
+// 表单组件
 class CommonForm extends React.Component {
 	// 提交表单事件
 	handleClick(e) {
@@ -93,7 +94,13 @@ class CommonBox extends React.Component {
 			comment:props.comment || []
 		}
 	}
-	
+	// 使用 getInitialState 方法时，必须是React.createClass创建才会触发
+	// getInitialState() {
+	//     return {
+	//     		comment: [{author:"初始化",body:"初始化"}]
+	// 		}
+	// }
+
 	loadData() {
 		var me = this;
 		$.ajax({
@@ -123,7 +130,7 @@ class CommonBox extends React.Component {
 	}
 
 	componentDidMount() {
-		this.loadData();
+		// this.loadData();
 	}
 	
 	handleNewComment(coments) {
