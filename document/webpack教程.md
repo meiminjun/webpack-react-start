@@ -6,14 +6,16 @@ Webpack最近很热，我一开始是想翻译一篇国外关于webpack的佳作
 
 ***
 webpack简单点来说就就是一个配置文件，所有的魔力都是在这一个文件中发生的。 这个配置文件主要分为三大块
-* entry 入口文件 让webpack用哪个文件作为项目的入口
-* output 出口 让webpack把处理完成的文件放在哪里
-* module 模块 要用什么不同的模块来处理各种类型的文件
+> * entry 入口文件 让webpack用哪个文件作为项目的入口
+> * output 出口 让webpack把处理完成的文件放在哪里
+> * module 模块 要用什么不同的模块来处理各种类型的文件
 
 ## 安装
 先装好node和npm，因为webpack是一个基于node的项目。然后
 > npm install -g webpack
+
 ## 建立项目
+
 建一个文件夹，然后新建一个package.json的文件在项目根目录下
 
 ``` base
