@@ -7,8 +7,8 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.dev.config');
 var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
-    contentBase: path.join(__dirname, './dev'),
-    publicPath: '',
+    contentBase: path.join(__dirname, './assets'),
+    publicPath: '//localhost:3000/',
     quiet: !true,
     noInfo: true,
     hot: true,
